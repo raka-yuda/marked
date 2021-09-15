@@ -1,0 +1,21 @@
+.title--line {
+  /* position: absolute; */
+  width: 64px;
+  height: 0px;
+  /* left: 120px;
+  top: 277px; */
+
+  border: 6px solid #000000;
+}
+
+.vector--right {
+  top: 25%;
+  right: 25%;
+}
+
+@media (max-width: 640px) {
+  .vector--right {
+    top: 20%;
+    right: 3%;
+  }
+}
