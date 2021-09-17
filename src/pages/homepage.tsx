@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import { useState } from "react";
 
+import { MainNavbar } from "../components";
+
 import classes from "./homepage.module.css";
 
 const Homepage: NextPage = () => {
@@ -11,62 +13,33 @@ const Homepage: NextPage = () => {
 
   return (
     <div className={`relative`}>
+      <MainNavbar />
       <div
-        className={`flex-1 px-4 md:container md:flex md:flex-col mx-auto md:px-24  md:h-screen `}
+        className={`flex-1 md:container md:flex md:flex-col mx-auto md:px-24 pt-36 md:pt-0  md:h-screen `}
       >
-        <nav
-          style={{ height: "140px" }}
-          className={`flex flex-row md:px-8 justify-between items-center`}
-        >
-          <div className="h-10 w-10">
-            <Image src="/logo.svg" height={48} width={48} layout="responsive" />
-          </div>
-
-          <ul className={"flex flex-row"}>
-            <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base md:px-16 px-2`}>Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`/products`}>
-                <a className={`text-base md:px-16 px-2`}>Explore</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`/cart`}>
-                <a className={`text-base md:px-16 px-2`}>Cart</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base md:px-16 px-2`}>Account</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-
-        <div className="flex flex-col overflow-y-auto md:flex-row flex-grow w-full">
+        <div className="flex flex-col overflow-y-auto md:flex-row flex-grow w-full px-4 md:px-0">
           <div className="flex flex-col flex-grow h-full justify-center md:w-1/2">
             <div className="flex flex-row items-center">
-              <div className={classes["title--line"]} />
+              <div className={`title--line`} />
               <p className={`text-xl font-bold px-8`}>Marked</p>
             </div>
             <div className="w-8/12">
-              <p className={`text-5xl font-bold pt-4 pb-8`}>
+              <p
+                className={`md:text-5xl text-4xl leading-tight font-bold pt-4 pb-8`}
+              >
                 Discover for customize your lifestyle
               </p>
             </div>
 
-            <p className={`text-xl pb-9`}>
+            <p className={`md:text-xl text-lg pb-9`}>
               Discover for customize your lifestyle
             </p>
             <div className="flex flex-row items-center">
               <Link href={`/products`}>
-                <button className={`border-4 py-4 px-6`}>
+                <button className={`border-4 border-black py-4 px-6`}>
                   <div className="flex flex-row items-center">
                     <span className={`mr-4`}>Explore</span>
-                    <div className={classes["title--line"]} />
+                    <div className={`title--line`} />
                   </div>
                 </button>
               </Link>

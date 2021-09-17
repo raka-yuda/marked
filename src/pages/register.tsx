@@ -7,8 +7,8 @@ const Register: NextPage = () => {
     <div>
       <div className={`flex flex-row md:h-screen`}>
         <div className="hidden md:flex w-1/2 flex-col bg-gray-600"></div>
-        <div className="flex overflow-y-auto w-full md:w-1/2 flex-col md:px-40 px-4 py-12">
-          <div className="flex justify-end items-center py-4">
+        <div className="flex overflow-y-auto w-full md:w-1/2 flex-col md:px-40 px-4 md:py-12 py-8">
+          <div className="flex justify-end items-center md:py-4">
             <Link href={`/homepage`}>
               <a className={`text-base`}>Home</a>
             </Link>
@@ -83,7 +83,9 @@ const Register: NextPage = () => {
               <p className="text-sm text-gray-400 pb-2">
                 Already have an account?
               </p>
-              <a className="text-sm text-black">Login</a>
+              <Link href={`/login`}>
+                <a className="text-sm text-black">Login</a>
+              </Link>
             </div>
           </div>
         </div>
