@@ -2,43 +2,15 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
+import { MainNavbar } from "../components";
+
 const Products: NextPage = () => {
   return (
     <div>
+      <MainNavbar />
       <div
-        className={`flex-col md:container md:flex md:flex-col mx-auto md:px-24 md:h-screen `}
+        className={`flex-col md:container md:flex md:flex-col mx-auto xl:px-24 pt-24 md:pt-36 md:h-screen `}
       >
-        <nav
-          style={{ minHeight: "140px" }}
-          className={`flex flex-row  justify-between items-center`}
-        >
-          <div className="h-10 w-10">
-            <Image src="/logo.svg" height={48} width={48} layout="responsive" />
-          </div>
-
-          <ul className={"flex flex-row"}>
-            <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base md:px-16 px-2`}>Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base md:px-16 px-2`}>Explore</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base md:px-16 px-2`}>Cart</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base md:px-16 px-2`}>Account</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
         <div className="flex flex-row items-center p-4">
           <div className={`title--line`} />
           <p className={`text-xl font-bold px-8`}>Explore all products</p>
