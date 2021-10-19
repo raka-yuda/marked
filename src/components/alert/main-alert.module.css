@@ -1,0 +1,21 @@
+.slider {
+  overflow-y: hidden;
+  max-height: 500px; /* approximate max height */
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  animation: slider-show 2s;
+}
+
+.slider.closed {
+  max-height: 0;
+}
+
+@keyframes slider-show {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 500px;
+  }
+}
