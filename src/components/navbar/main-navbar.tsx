@@ -1,38 +1,59 @@
 import Link from "next/link";
 import Image from "next/image";
+import { RootState } from "../../redux/store";
+import { UserState } from "../../redux/slices/user-slice";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
-const MainNavbar = () => {
+interface Props {
+  className?: string;
+}
+
+const MainNavbar = ({ className }: Props) => {
+  const { user, isLoggedIn }: UserState = useSelector(
+    (state: RootState) => state.user
+  );
+
   return (
-    <div className={`absolute top-0 w-screen`}>
+    <div className={`absolute top-0 w-full`}>
       <nav
-        className={`fixed flex flex-row h-24 md:h-36 md:px-40 justify-between items-center w-full z-50 bg-white shadow md:shadow-none`}
+        className={`fixed flex flex-row justify-center h-24 xl:h-36 xl:px-24 w-full z-50 bg-white shadow md:shadow-none ${
+          className ?? ""
+        }`}
       >
-        <div className="h-10 w-10 mx-8">
-          <Image src="/logo.svg" height={48} width={48} layout="responsive" />
+        <div className="container flex flex-row items-center justify-between px-4  xl:w-full">
+          <div className="h-8 w-8 md:h-10 md:w-10 mx-8 xl:mx-20">
+            <img src="/logo.svg" className="w-full" />
+          </div>
+          <ul className={"flex flex-row"}>
+            <li>
+              <Link href={`/homepage`}>
+                <a className={`text-base font-bold md:px-10 xl:px-16 px-2`}>
+                  Home
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/products`}>
+                <a
+                  className={`text-base font-extralight md:px-10 xl:px-16 px-2`}
+                >
+                  Explore
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/cart`}>
+                <a className={`text-base md:px-10 xl:px-16 px-2`}>Cart</a>
+              </Link>
+            </li>
+            <li>
+              <p className={`text-base md:px-10 xl:px-16 px-2`}>
+                {isLoggedIn ? user?.name : "Account"}
+              </p>
+            </li>
+          </ul>
         </div>
-
-        <ul className={"flex flex-row"}>
-          <li>
-            <Link href={`/homepage`}>
-              <a className={`text-base md:px-16 px-2`}>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/products`}>
-              <a className={`text-base md:px-16 px-2`}>Explore</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/cart`}>
-              <a className={`text-base md:px-16 px-2`}>Cart</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/homepage`}>
-              <a className={`text-base md:px-16 px-2`}>Account</a>
-            </Link>
-          </li>
-        </ul>
       </nav>
     </div>
   );
