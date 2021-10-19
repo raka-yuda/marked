@@ -36,7 +36,7 @@ const Transaction: NextPage = () => {
               <div className="relative h-48 w-48 md:h-72 md:w-72 mr-4 mt-4 bg-white border-4 border-black">
                 <div className="relative flex justify-center items-center h-48 w-48 md:h-72 md:w-72 left-4 -top-6 border-4 border-black bg-white bg-center">
                   <div className="w-full h-full flex justify-center items-center p-8">
-                    <img src="/online-shop.svg" />
+                    <img src="/success-transaction.svg" />
                   </div>
                 </div>
               </div>
