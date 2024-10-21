@@ -1,30 +1,31 @@
-const plugin = require('tailwindcss/plugin')
+/** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
-        'mulish': ['"Mulish"', 'cursive']
-      }
+        mulish: ['"Mulish"', 'sans-serif'], // Ensure fallback
+      },
     },
   },
   variants: {
     extend: {},
   },
   plugins: [
-    plugin(function ({ addUtilities, addComponents, e, prefix, config }) {
-      // Add your custom styles here
-    }),
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         '.border-spacing-0': {
-          [`border-spacing`]: '0',
-        }
-      }
-
-      addUtilities(newUtilities, ['responsive', 'hover'])
-    })
-  ]
-}
+          borderSpacing: '0',
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
+  ],
+};
