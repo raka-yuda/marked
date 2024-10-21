@@ -7,6 +7,7 @@ import { authLogin, UserState } from "../redux/slices/user-slice";
 import { useEffect, useState } from "react";
 import Router from "next/router";
 import { MainAlert } from "../components";
+import Head from "next/head";
 
 type Props = {
   user: User;
@@ -82,13 +83,21 @@ const Login: NextPage = () => {
   };
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>
+          Login | Marked
+        </title>
+      </Head>
       <div className={`flex flex-row md:h-screen`}>
         <div className="hidden md:flex w-1/2 flex-col bg-gray-600"></div>
         <div className="flex overflow-y-auto w-full md:w-1/2 flex-col xl:px-40 md:px-24 px-4 md:py-12 py-8">
           <div className="flex justify-end items-center md:py-4">
-            <Link href={`/homepage`}>
-              <a className={`text-base`}>Home</a>
+            <Link
+              href={`/homepage`}
+              className={`text-base`}
+            >
+              Home
             </Link>
           </div>
           <form
@@ -163,15 +172,18 @@ const Login: NextPage = () => {
               <p className="text-sm text-gray-400 pb-2">
                 Didn’t have an account?
               </p>
-              <Link href={`/register`}>
-                <a className="text-sm text-black">Register</a>
+              <Link
+                href={`/register`}
+                className="text-sm text-black"
+              >
+                Register
               </Link>
             </div>
           </form>
         </div>
       </div>
       {showAlert && <MainAlert isShow={showAlert} message={alertMessage} />}
-    </div>
+    </>
   );
 };
 
