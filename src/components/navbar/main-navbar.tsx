@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { RootState } from "../../redux/store";
 import { UserState } from "../../redux/slices/user-slice";
 import { useSelector } from "react-redux";
@@ -27,24 +26,27 @@ const MainNavbar = ({ className }: Props) => {
           </div>
           <ul className={"flex flex-row"}>
             <li>
-              <Link href={`/homepage`}>
-                <a className={`text-base font-bold md:px-10 xl:px-16 px-2`}>
-                  Home
-                </a>
+              <Link 
+                href={`/homepage`}
+                className={`text-base font-bold md:px-10 xl:px-16 px-2`}
+              >
+                Home
               </Link>
             </li>
             <li>
-              <Link href={`/products`}>
-                <a
-                  className={`text-base font-extralight md:px-10 xl:px-16 px-2`}
-                >
-                  Explore
-                </a>
+              <Link 
+                href={`/products`}
+                className={`text-base font-extralight md:px-10 xl:px-16 px-2`}
+              >
+                Explore
               </Link>
             </li>
             <li>
-              <Link href={`/cart`}>
-                <a className={`text-base md:px-10 xl:px-16 px-2`}>Cart</a>
+              <Link 
+                href={`/cart`}
+                className={`text-base md:px-10 xl:px-16 px-2`}  
+              >
+                Cart
               </Link>
             </li>
             <li>
