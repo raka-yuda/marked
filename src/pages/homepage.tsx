@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { UserState } from "../redux/slices/user-slice";
 import { RootState } from "../redux/store";
 import { MainAlert, MainNavbar } from "../components";
+import Head from "next/head";
 
 const Homepage: NextPage = () => {
   const { user, isLoggedIn }: UserState = useSelector(
@@ -15,7 +16,12 @@ const Homepage: NextPage = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <div className={`relative`}>
+    <>
+      <Head>
+        <title>
+          Home | Marked
+        </title>
+      </Head>
       <MainNavbar />
       <div
         className={`flex-1 md:container md:flex md:flex-col mx-auto xl:px-24 pt-8 md:pt-0 md:h-screen`}
@@ -67,24 +73,20 @@ const Homepage: NextPage = () => {
             <div className={`absolute w-full h-full`}>
               {!isLoggedIn && (
                 <div className="flex flex-grow h-full items-end">
-                  <div className="flex flex-row items-center w-1/2">
-                    <Link href={`/login`}>
-                      <button className={`py-4 px-6 w-full bg-gray-400`}>
-                        <div className="flex flex-row justify-center items-center">
-                          <span className={`text-white`}>Login</span>
-                        </div>
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="flex flex-row items-center w-1/2">
-                    <Link href={`/register`}>
-                      <button className={`py-4 px-6 w-full bg-gray-600`}>
-                        <div className="flex flex-row justify-center items-center">
-                          <span className={`text-white`}>Register</span>
-                        </div>
-                      </button>
-                    </Link>
-                  </div>
+                  <Link href={`/login`} className="flex flex-row items-center w-1/2">
+                    <button className={`py-4 px-6 w-full bg-gray-400`}>
+                      <div className="flex flex-row justify-center items-center">
+                        <span className={`text-white`}>Login</span>
+                      </div>
+                    </button>
+                  </Link>
+                  <Link href={`/register`} className="flex flex-grow items-center w-1/2">
+                    <button className={`py-4 px-6 w-full bg-gray-600`}>
+                      <div className="flex flex-row justify-center items-center">
+                        <span className={`text-white`}>Register</span>
+                      </div>
+                    </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -114,7 +116,7 @@ const Homepage: NextPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

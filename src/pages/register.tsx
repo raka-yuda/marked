@@ -7,6 +7,7 @@ import Router from "next/router";
 import { authRegister, UserState } from "../redux/slices/user-slice";
 import { RootState } from "../redux/store";
 import { MainAlert } from "../components";
+import Head from "next/head";
 
 interface UserAttributes {
   name: string;
@@ -70,13 +71,21 @@ const Register: NextPage = () => {
   };
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>
+          Register | Marked
+        </title>
+      </Head>
       <div className={`flex flex-row md:h-screen`}>
         <div className="hidden md:flex w-1/2 flex-col bg-gray-600"></div>
         <div className="flex overflow-y-auto w-full md:w-1/2 flex-col md:px-40 px-4 md:py-12 py-8">
           <div className="flex justify-end items-center md:py-4">
-            <Link href={`/homepage`}>
-              <a className={`text-base`}>Home</a>
+            <Link 
+              href={`/homepage`}
+              className={`text-base`}
+            >
+              Home
             </Link>
           </div>
           <div className="flex flex-col flex-grow justify-center">
@@ -204,15 +213,18 @@ const Register: NextPage = () => {
               <p className="text-sm text-gray-400 pb-2">
                 Already have an account?
               </p>
-              <Link href={`/login`}>
-                <a className="text-sm text-black">Login</a>
+              <Link 
+                href={`/login`}
+                className="text-sm text-black"
+              >
+                Login
               </Link>
             </div>
           </div>
         </div>
       </div>
       {showAlert && <MainAlert isShow={showAlert} message={alertMessage} />}
-    </div>
+    </>
   );
 };
 

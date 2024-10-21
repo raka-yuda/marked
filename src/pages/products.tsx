@@ -10,6 +10,7 @@ import { RootState } from "../redux/store";
 import CardProduct from "../components/card/card-product";
 import { fetchProducts, ProductsState } from "../redux/slices/product-slice";
 import { useEffect } from "react";
+import Head from "next/head";
 
 const Products: NextPage = () => {
   const { cart, isLoggedIn }: UserState = useSelector(
@@ -28,7 +29,12 @@ const Products: NextPage = () => {
   }, [dispatch, fetchProducts]);
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>
+          Products | Marked
+        </title>
+      </Head>
       <MainNavbar />
       <div
         className={`flex-col md:container md:flex md:flex-col mx-auto xl:px-24 pt-24 md:pt-36 md:h-screen `}
@@ -61,7 +67,7 @@ const Products: NextPage = () => {
             })}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
